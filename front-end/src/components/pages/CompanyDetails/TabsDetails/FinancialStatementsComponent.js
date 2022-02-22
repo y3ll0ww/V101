@@ -45,8 +45,7 @@ function a11yProps(index) {
   };
 }
 
-//export default function VerticalTabs() {
-export default function StatementByKey(statements) {
+export default function FinancialStatementsComponent(statements) {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
@@ -67,6 +66,7 @@ export default function StatementByKey(statements) {
           direction='row'
           style={{height: '100px'}}
         >
+            {/* Define the tabs */}
             <Grid item xs={12} sm={12} md={12}
                sx={{ borderRight: 1, borderColor: 'divider', padding: '0px !important', paddingLeft: '16px !important' }}>
                 <Tabs
@@ -74,15 +74,13 @@ export default function StatementByKey(statements) {
                   variant="scrollable"
                   value={value}
                   onChange={handleChange}
-                  //aria-label="Vertical tabs example"
                 >
-                  <Tab label="Financials" {...a11yProps(0)} />
-                  <Tab label="V101 Formula" {...a11yProps(1)} />
-                  <Tab label="Technical Chart" {...a11yProps(2)} />
-                  <Tab label="News" {...a11yProps(3)} />
-                  <Tab label="The Big 4" {...a11yProps(4)} />
+                  <Tab label={statements.one_type} {...a11yProps(0)} />
+                  <Tab label={statements.two_type} {...a11yProps(1)} />
+                  <Tab label={statements.three_type} {...a11yProps(2)} />
                 </Tabs>
             </Grid>
+            {/* Define content per tab */}
             <Grid item xs={12} sm={12} md={12} style={{ padding:'0px'}}>
                  <TabPanel value={value} index={0}
                     style={{ display:'flex',
@@ -92,7 +90,26 @@ export default function StatementByKey(statements) {
                              padding: 0}}>
                     <StatementComponent statements={statements} />
                  </TabPanel>
+
                  <TabPanel value={value} index={1}
+                    style={{ display:'flex',
+                             flexDirection: 'column',
+                             overflow: 'scroll',
+                             overflowX: 'hidden',
+                             padding: 0}}>
+                    <StatementComponent statements={statements} />
+                 </TabPanel>
+
+                 <TabPanel value={value} index={2}
+                    style={{ display:'flex',
+                             flexDirection: 'column',
+                             overflow: 'scroll',
+                             overflowX: 'hidden',
+                             padding: 0}}>
+                    <StatementComponent statements={statements} />
+                 </TabPanel>
+
+                 <TabPanel value={value} index={3}
                     style={{ display:'flex',
                             flexDirection: 'column',
                             overflow: 'scroll',
@@ -100,14 +117,9 @@ export default function StatementByKey(statements) {
                             padding: 0}}>
                    <FormulaComponent />
                  </TabPanel>
-                 <TabPanel value={value} index={2}>
-                   <TechnicalChartComponent />
-                 </TabPanel>
-                 <TabPanel value={value} index={3}>
-                   Item Four
-                 </TabPanel>
+
                  <TabPanel value={value} index={4}>
-                   Item Five
+                   <TechnicalChartComponent />
                  </TabPanel>
             </Grid>
         </Grid>

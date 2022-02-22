@@ -14,17 +14,17 @@ import { store } from './store'
 
 import ChartViewer from './Chart/ChartViewer';
 
-import StatementByKey from './TabsDetails/DetailsTab';
+import FinancialStatementsComponent from './TabsDetails/FinancialStatementsComponent';
 
 function PageCompanyDetails() {
     let { ticker } = useParams();
 
-    let company = CompanyByTicker(ticker);
-    let statements = StatementsByKey(company.company_id);
+    let company_api = CompanyByTicker(ticker);
+    let statements_api = StatementsByKey(company_api.company_id);
 
-    let tabs = StatementByKey(statements);
+    let fsComponent = FinancialStatementsComponent(statements_api);
 
-    if (statements.one_type != null) {
+    if (statements_api.one_type != null) {
         return (
             <Provider store={store}>
 
@@ -34,7 +34,7 @@ function PageCompanyDetails() {
 
                 <Grid item xs={12} sm={12} md={5}>
                     <h2 style={{marginLeft:'25px',marginBottom:'-25px'}}>{ticker}</h2>
-                    <CompanyCardComponent com={company} />
+                    <CompanyCardComponent com={company_api} />
                 </Grid>
 
                 <Grid item xs={12} sm={12} md={7}>
@@ -45,17 +45,17 @@ function PageCompanyDetails() {
 
                 <Grid item xs={12}>
                     <h2 style={{marginLeft:'25px',marginBottom:'25px'}}>Financial statements</h2>
-                    {tabs}
+                    {fsComponent}
                 </Grid>
 
                 <Grid item xs={12} sm={12} md={7}>
                     <h2 style={{marginLeft:'25px',marginBottom:'25px'}}>V101</h2>
-                    {tabs}
+                    {fsComponent}
                 </Grid>
 
                 <Grid item xs={12} sm={12} md={5}>
                     <h2 style={{marginLeft:'25px',marginBottom:'25px'}}>News</h2>
-                    {tabs}
+                    {fsComponent}
                 </Grid>
 
             </Grid>
@@ -65,12 +65,12 @@ function PageCompanyDetails() {
             </Provider>
         )
     }
-    console.log('statements:')
-    console.log(statements)
+
+
     return (
         <Provider store={store}>
         <div className='pagebase'>
-            {company.name}
+            {company_api.name}
         </div>
         </Provider>
     );

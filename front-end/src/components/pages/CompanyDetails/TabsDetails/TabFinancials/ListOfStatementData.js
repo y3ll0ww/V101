@@ -25,6 +25,7 @@ const Statement = (props) => {
     if (!statement || statement.length === 0) return <p>Can not find any statements, sorry</p>;
     for (let i = 0; i < statement.rows[0].data.length; i++) {
         let date = statement.rows[0].data[i].date
+        {/* Add a column header (YYYY) from date */}
         columns.push({field: "$" + date.replace('-','$').replace('-','$'), type: "number", headerName: date.split('-')[0], width: 150, headerClassName: 'header'})
     }
     for (let i = 0; i < statement.rows.length; i++) {

@@ -50,7 +50,7 @@ function StatementComponent({statements}) {
     return (
         <Container sx={{ height: 452}}>
             <h2>Financials</h2>
-            <div class='button-group'>
+        {/*    <div class='button-group'>
             <ButtonGroup variant="text" aria-label="outlined button group">
               <Button
                 onClick={() => setId(statements.one_id)}>
@@ -66,6 +66,8 @@ function StatementComponent({statements}) {
               </Button>
             </ButtonGroup>
             </div>
+        */}
+            <h3>hoi</h3>
             <StatementLoading isLoading={appState.loading} statement={appState.statement} />
         </Container>
     );
