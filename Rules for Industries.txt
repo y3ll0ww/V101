@@ -1,0 +1,10 @@
+Original:			Changed to:
+Retail/Wholesale		Retail!Wholesale
+Auto/Tires/Trucks		Auto!Tires!Trucks
+Oils/Energy			Oils!Energy
+Not found			Other
+Miscellaneous			Other
+Unclassified			Other
+--				Other
+				Other
+Finance				Financial Services

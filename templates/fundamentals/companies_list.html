@@ -1,0 +1,28 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<h1>Company List</h1>
+
+<p>Found a total of <b>{{total}}</b> companies{{string}}</p>
+
+<table>
+    <tbody>
+    <tr style="font-weight:bold">
+        <td align="right">#</td>
+        <td>Name and ticker</td>
+        <td>Industry</td>
+    </tr>
+
+{% for c in companies %}
+    <tr>
+        <td align="right">{{forloop.counter}}</td>
+        <td><a href="{% url 'Fundamentals:Company' c.company_id 0 %}">{{c}}</a></td>
+        <td><a href="{% url 'Fundamentals:Companies' c.industry %}">{{c.industry}}</td>
+    </tr>
+{% endfor %}
+
+    </tbody>
+</table>
+
+{% endblock content %}
+

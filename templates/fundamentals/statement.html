@@ -1,0 +1,46 @@
+<h2>{{statement.type}}</h2>
+
+{% for type in types %}
+    {% if type != statement.type %}
+        <a href="{% url 'Fundamentals:Company' company.company_id forloop.counter|add:-1 %}">{{type}}</a>
+    {% endif %}
+{% endfor %}
+
+</br></br></br>
+
+<table>
+    <tbody>
+        <tr style="font-weight:bold">
+            <td>#</td>
+            <td>Data item</td>
+            {% for date in dates.0 %}
+                <td align="right">
+                    {{date|date:'Y'}}
+                </td>
+            {% endfor %}
+        </tr>
+        {% for statement_row in st_rows %}
+        {% if statement_row.data_item != 'ROIC' %}
+            {% if statement_row.style == 'BOLD' %}
+            <tr style="font-weight:bold">
+            {% else %}
+            <tr>
+            {% endif %}
+                <td align="right">{{statement_row.row_nr|add:1}}</td>
+                <td>{{statement_row.data_item}}</td>
+                {% for row_data in r_data %}
+                    {% if row_data.row_key == statement_row %}
+                        <td align="right">
+                        {% if row_data.amount %}
+                            {{row_data.amount|floatformat:"g"}}
+                        {% else %}
+                            -
+                        {% endif %}
+                        </td>
+                    {% endif %}
+                {% endfor %}
+            </tr>
+        {% endif %}
+        {% endfor %}
+    </tbody>
+</table>

@@ -1,0 +1,11 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<h1>{{company}}</h1>
+
+<p><a href="{% url 'Fundamentals:Companies' %}">Back to list</a></p>
+
+{% include 'fundamentals/roic.html' %}
+{% include 'fundamentals/statement.html' %}
+
+{% endblock content %}

@@ -1,0 +1,30 @@
+<h2>{{roic.type}}</h2>
+
+<table>
+    <tbody>
+    <tr style="font-weight:bold">
+        {% for date in dates.1 %}
+        <td align="right">
+            {{date|date:'Y'}}
+        </td>
+        {% endfor %}
+    </tr>
+    {% for statement_row in st_rows %}
+    <tr>
+        {% if statement_row.statement_key == roic %}
+            {% for row_data in r_data %}
+                {% if row_data.row_key == statement_row %}
+                    <td align="right">
+                        {% if row_data.amount %}
+                            {% widthratio row_data.amount 1 100 %}%
+                        {% else %}
+                            -
+                        {% endif %}
+                    </td>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>

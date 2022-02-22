@@ -1,0 +1,154 @@
+@font-face {
+    font-family: 'Poppins';
+    src: url('./static/fonts/Poppins/Poppins-Regular.ttf');
+    font-weight: 300;
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url('./static/fonts/Poppins/Poppins-Bold.ttf');
+    font-weight: 400;
+}
+@font-face {
+    font-family: 'Assistant';
+    src: url('./static/fonts/Assistant/Assistant-Light.ttf');
+    font-weight: 100;
+}
+@font-face {
+    font-family: 'Assistant';
+    src: url('./static/fonts/Assistant/Assistant-Regular.ttf');
+    font-weight: 400;
+}
+@font-face {
+    font-family: 'Assistant';
+    src: url('./static/fonts/Assistant/Assistant-SemiBold.ttf');
+    font-weight: 500;
+}
+@font-face {
+    font-family: 'Assistant';
+    src: url('./static/fonts/Assistant/Assistant-ExtraBold.ttf');
+    font-weight: 800;
+}
+
+/*	KLEUREN BRANDING
+ * Groen:		#47A75C  -  rgb(71,167,92)
+ * Grijsblauw:	#547B97  -  rgb(84,123,151)
+ * Lichtblauw:	#BADCDD  -  rgb(186,220,221)
+ * Donker:		#212B40  -  rgb(33,43,64)
+ * Achtergrond:	#FFFFFF */
+
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins';
+    font-weight: bold;
+    line-height: 0.9;
+}
+h1{ font-size: 4rem; }
+h2{ font-size: 2.8rem; }
+h3{ font-size: 2.2rem; }
+h4{ font-size: 1.8rem; }
+h5{ font-size: 1.5rem; }
+h6{ font-size: 1.1rem; }
+
+body, p {
+  margin: 0;
+  font-family: 'Assistant';
+  font-weight: 100;
+  font-size: 1rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+span {
+  margin: 0;
+  font-family: 'Assistant';
+  font-weight: 400;
+  font-size: .9rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+#navbar-logo {
+    max-width: 100px;
+    margin-left: 5%;
+    filter: brightness(100) drop-shadow(0px 0px 5px #222);
+}
+
+.loadingWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading{
+    width: '20%';
+}
+
+.pagebase {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#cardtitle {
+    font-size: 2.5rem;
+}
+
+.MuiDataGrid-cell {
+    font-family: 'Assistant';
+}
+.MuiDataGrid-columnHeaderTitle {
+    font-family: 'Poppins';
+    font-weight: 400;
+}
+
+.button-group button.MuiButton-root {
+    text-transform: capitalize;
+    font-family: 'Assistant';
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+/*-------------*/
+/* SCROLLBAR */
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  /*background: #f1f1f1;*/
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+/*-------------*/
+/* Company Details: Chart */
+/* xs:576px, sm:768px, md:992px and lg/xl:1200px. */
+@media screen and (max-width: 992px) {
+    .chart-paper {
+        margin-left: 20px !important;
+    }
+}
+.chart-paper {
+    margin-left: -27px;
+}
+
+.chart {
+    padding-top: 30px;
+    padding-right: 20px;
+}
+
