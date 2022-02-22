@@ -1,2 +1,2 @@
 # V101
-Python Django/React Redux website. An educational platform for fundamental company analyses.
+An educational platform for fundamental company analyses, created with Python Django and React with Redux.
