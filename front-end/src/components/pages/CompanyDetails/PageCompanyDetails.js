@@ -1,20 +1,19 @@
 import React, { useEffect, useState } from 'react';
+import { Provider } from 'react-redux';
+import { store } from './store'
 
 import { useParams } from "react-router-dom";
-import StatementComponent from './TabsDetails/TabFinancials/StatementComponent';
-import CompanyCardComponent from './CompanyCard/CompanyCardComponent';
 
 import CompanyByTicker from '../../ApiCalls/CompanyByTicker';
 import StatementsByKey from '../../ApiCalls/StatementsByKey';
 
-import Grid from '@mui/material/Grid';
+import CompanyCardComponent from './CompanyCard/CompanyCardComponent';
+import FinancialStatementsComponent from './FinancialStatements/FinancialStatementsComponent';
 
-import { Provider } from 'react-redux';
-import { store } from './store'
+import Grid from '@mui/material/Grid';
 
 import ChartViewer from './Chart/ChartViewer';
 
-import StatementByKey from './TabsDetails/DetailsTab';
 
 function PageCompanyDetails() {
     let { ticker } = useParams();
@@ -22,7 +21,7 @@ function PageCompanyDetails() {
     let company = CompanyByTicker(ticker);
     let statements = StatementsByKey(company.company_id);
 
-    let tabs = StatementByKey(statements);
+    let fsComponent = FinancialStatementsComponent(statements);
 
     if (statements.one_type != null) {
         return (
@@ -45,17 +44,17 @@ function PageCompanyDetails() {
 
                 <Grid item xs={12}>
                     <h2 style={{marginLeft:'25px',marginBottom:'25px'}}>Financial statements</h2>
-                    {tabs}
+                    {fsComponent}
                 </Grid>
 
                 <Grid item xs={12} sm={12} md={7}>
                     <h2 style={{marginLeft:'25px',marginBottom:'25px'}}>V101</h2>
-                    {tabs}
+                    'V101 component'
                 </Grid>
 
                 <Grid item xs={12} sm={12} md={5}>
                     <h2 style={{marginLeft:'25px',marginBottom:'25px'}}>News</h2>
-                    {tabs}
+                    'News component'
                 </Grid>
 
             </Grid>
