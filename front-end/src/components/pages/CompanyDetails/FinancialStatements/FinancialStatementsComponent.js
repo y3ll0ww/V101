@@ -1,8 +1,6 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 
-import StatementsByKey from '../../../ApiCalls/StatementsByKey';
-
 import loading from '../../../../static/img/Ripple-1s-194px.svg';
 
 import StatementComponent from './StatementComponent';

@@ -15,6 +15,7 @@ const TradingViewWidget = ({symbol}) => {
     return <div style={{height:'508px',marginTop:'10px'}}>
             <AdvancedRealTimeChart
                 theme="light"
+                symbol={symbol}
                 autosize="true"
                 copyrightStyles={styles}
                 range="12M"
