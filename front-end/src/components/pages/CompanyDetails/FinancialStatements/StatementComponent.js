@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 
-import StatementsByKey from '../../../ApiCalls/StatementsByKey';
-
 import domain from '../../../../static/global/domain'
 
 import Statement from './ListOfStatementData';

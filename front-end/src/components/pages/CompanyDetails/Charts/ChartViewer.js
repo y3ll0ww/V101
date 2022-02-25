@@ -7,7 +7,7 @@ import ButtonGroup from '@mui/material/ButtonGroup';
 import Chart from './ChartComponent';
 import ChartSwitch from './ChartSwitch';
 
-function ChartViewer() {
+function ChartViewer(ticker) {
     const [chart, setChart] = useState({ type: 'Fundamental' });
 
     return (

@@ -12,7 +12,7 @@ import FinancialStatementsComponent from './FinancialStatements/FinancialStateme
 
 import Grid from '@mui/material/Grid';
 
-import ChartViewer from './Chart/ChartViewer';
+import ChartViewer from './Charts/ChartViewer';
 
 
 function PageCompanyDetails() {
@@ -38,7 +38,7 @@ function PageCompanyDetails() {
 
                 <Grid item xs={12} sm={12} md={7}>
                     <h2 style={{marginLeft:'-25px',marginBottom:'-25px'}}>Charts</h2>
-                    <ChartViewer />
+                    <ChartViewer ticker={ticker}/>
                 </Grid>
 
 
