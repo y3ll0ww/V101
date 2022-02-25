@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react';
+
+import StatementsByKey from '../../../ApiCalls/StatementsByKey';
+
+import domain from '../../../../static/global/domain'
+
 import Statement from './ListOfStatementData';
 import StatementLoadingComponent from './StatementLoadingComponent';
+
 import Container from '@mui/material/Container';
-import domain from '../../../../../static/global/domain'
-import Button from '@mui/material/Button';
-import ButtonGroup from '@mui/material/ButtonGroup';
 import Box from '@mui/material/Box';
-import StatementsByKey from '../../../../ApiCalls/StatementsByKey';
+import ButtonGroup from '@mui/material/ButtonGroup';
+import Button from '@mui/material/Button';
 
 
 function StatementComponent({statements}) {
@@ -14,14 +18,20 @@ function StatementComponent({statements}) {
 
     const [appState, setAppState] = useState({
         id: statements.one_id,
+        type: null,
         loading: false,
         statement: null,
-        memory: [{ id: statements.one_id, st: null },
-                 { id: statements.two_id, st: null },
-                 { id: statements.three_id, st: null} ],
+        memory: [{ id: statements.one_id, type: statements.one_type, st: null },
+                 { id: statements.two_id, type: statements.two_type, st: null },
+                 { id: statements.three_id, type: statements.three_type, st: null} ],
     });
 
     function setId(stid){
+        for (let i = 0; i < appState.memory.length; i++) {
+            if (appState.memory[i].id == stid) {
+                document.getElementById('stType').innerHTML = appState.memory[i].type;
+            }
+        }
         setAppState({ ...appState, id: stid })
     };
 
@@ -48,25 +58,29 @@ function StatementComponent({statements}) {
     }, [setAppState, appState.id]);
 
     return (
-        <Container sx={{ height: 452}}>
-            <h2>Financials</h2>
+        <Container sx={{ height: 700}}>
+
             <div class='button-group'>
-            <ButtonGroup variant="text" aria-label="outlined button group">
-              <Button
-                onClick={() => setId(statements.one_id)}>
-                    {statements.one_type}
-              </Button>
-              <Button
-                onClick={() => setId(statements.two_id)}>
-                    {statements.two_type}
-              </Button>
-              <Button
-                onClick={() => setId(statements.three_id)}>
-                    {statements.three_type}
-              </Button>
-            </ButtonGroup>
+                <ButtonGroup variant="text" aria-label="outlined button group">
+                    <Button onClick={() => setId(statements.one_id)}>
+                        {statements.one_type}
+                    </Button>
+                    <Button onClick={() => setId(statements.two_id)}>
+                        {statements.two_type}
+                    </Button>
+                    <Button onClick={() => setId(statements.three_id)}>
+                        {statements.three_type}
+                    </Button>
+                </ButtonGroup>
             </div>
-            <StatementLoading isLoading={appState.loading} statement={appState.statement} />
+
+            <div style={{
+                       marginLeft:'30px',
+                       marginRight:'5px'
+                 }}>
+                <h3 id='stType'>{statements.one_type}</h3>
+                <StatementLoading isLoading={appState.loading} statement={appState.statement} />
+            </div>
         </Container>
     );
 }

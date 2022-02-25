@@ -1,7 +1,9 @@
 import React from 'react';
-import { DataGrid } from '@mui/x-data-grid';
 import { useDispatch, useSelector } from 'react-redux';
-import { setSelection } from '../../reducers/selection';
+
+import { setSelection } from '../reducers/selection';
+
+import { DataGrid } from '@mui/x-data-grid';
 
 var rows: GridRowsProp = [];
 
@@ -45,8 +47,7 @@ const Statement = (props) => {
     }
 
     return (
-            <div style={{ height: '500px', width: '100%' }}>
-                <h3>{statement.type}</h3>
+            <div style={{ height: '470px', width: '100%' }}>
                 <p>*{statement.multiplier}</p>
                 <DataGrid
                     rows={rows}

@@ -1,5 +1,5 @@
 import React from 'react';
-import loading from '../../../../../static/img/Ripple-1s-194px.svg'
+import loading from '../../../../static/img/Ripple-1s-194px.svg'
 
 function StatementLoading(Component) {
     return function StatementLoadingComponent({ isLoading, ...props }) {
