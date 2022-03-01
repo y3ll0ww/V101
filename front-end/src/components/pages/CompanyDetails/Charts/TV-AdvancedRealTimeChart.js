@@ -1,6 +1,7 @@
 import { AdvancedRealTimeChart } from "react-ts-tradingview-widgets";
 
 const TradingViewWidget = ({symbol}) => {
+
     const styles: CopyrightStyles = {
         parent: {
             fontSize: "0px",
@@ -12,7 +13,9 @@ const TradingViewWidget = ({symbol}) => {
         },
     };
 
-    return <div style={{height:'508px',marginTop:'10px'}}>
+    const link = "https://www.tradingview.com/symbols/" + symbol
+
+    return <div style={{height:'85%',marginTop:'10px'}}>
             <AdvancedRealTimeChart
                 theme="light"
                 symbol={symbol}
@@ -24,11 +27,11 @@ const TradingViewWidget = ({symbol}) => {
                 hide_side_toolbar="true"
                 studies={["MACD@tv-basicstudies","StochasticRSI@tv-basicstudies","BB@tv-basicstudies"]}
            />
-            <p style={{textAlign:'center', marginTop:'-30px', fontSize:'8px'}}>
+            <p style={{textAlign:'center', marginTop:'10px', fontSize:'8px'}}>
                 <b>
                 <a  style={{fontSize:'11px',textDecoration:'none'}}
-                    href='https://google.nl'
-                    target="_blank">google.nl
+                    href={link}
+                    target="_blank">{symbol}
                 </a></b> by TradingView
             </p>
            </div>

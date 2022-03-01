@@ -11,15 +11,10 @@ import Box from '@mui/material/Box';
 
 
 export default function FinancialStatementsComponent(statements) {
-  const [value, setValue] = React.useState(0);
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
 
   if (statements.one_type != null) {
     return (
-      <Paper className='details-paper'
+      <Paper
       elevation={4}
       style={{height:'700px',
               marginTop: '-30px',
