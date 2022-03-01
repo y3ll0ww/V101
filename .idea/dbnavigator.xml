@@ -2,7 +2,7 @@
 <project version="4">
   <component name="DBNavigator.Project.DataEditorManager">
     <record-view-column-sorting-type value="BY_INDEX" />
-    <value-preview-text-wrapping value="true" />
+    <value-preview-text-wrapping value="false" />
     <value-preview-pinned value="false" />
   </component>
   <component name="DBNavigator.Project.DataExportManager">
@@ -27,7 +27,9 @@
     <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files />
+    <open-files>
+      <object connection-id="68d5cf9f-7d77-4fd4-9a4d-8d709737b4a9" object-ref="consoles/Connection" />
+    </open-files>
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />

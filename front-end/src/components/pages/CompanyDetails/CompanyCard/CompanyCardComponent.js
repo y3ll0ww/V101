@@ -5,7 +5,7 @@ import axios from 'axios';
 
 import yfApiKey from '../../../../static/global/yfinkey';
 import domain from '../../../../static/global/domain';
-import TradingViewWidget from './TradingViewWidget'
+import TradingViewWidget from './TV-SymbolOverview'
 
 import { setCompanyData } from '../reducers/company';
 
@@ -103,14 +103,15 @@ const CompanyCardComponent = ({com}) => {
 
 
     return (
-        <Paper
+        <Paper id='companyCard'
           elevation={4}
           style={{
           padding: 18,
           margin: 20,
+          height: '94.5%'
           }}>
 
-            <h1 style={{fontSize:'24px'}}id='cardtitle'>{company.name}</h1>
+            <h1 style={{fontSize:'32px'}}id='cardtitle'>{company.name} - {company.ticker}</h1>
 
             <Stack direction="row" spacing={1}>
                 <Chip icon={getIcon(company.industry)} label={company.industry} />
@@ -135,11 +136,7 @@ const CompanyCardComponent = ({com}) => {
                 </Grid>
             </Grid>
 
-            <p>{company.exchange}</p>
-
             <TradingViewWidget symbol={[com.name, com.ticker]}/>
-
-            <p>{company.exchange}</p>
 
             <h6>Progress</h6>
             <LinearProgress variant="determinate" value={50}

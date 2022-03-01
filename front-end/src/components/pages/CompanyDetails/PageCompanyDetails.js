@@ -9,6 +9,7 @@ import StatementsByKey from '../../ApiCalls/StatementsByKey';
 
 import CompanyCardComponent from './CompanyCard/CompanyCardComponent';
 import FinancialStatementsComponent from './FinancialStatements/FinancialStatementsComponent';
+import FormulaComponent from './Formula/FormulaComponent';
 
 import Grid from '@mui/material/Grid';
 
@@ -29,32 +30,26 @@ function PageCompanyDetails() {
 
             <div className='pagebase'>
 
-            <Grid container spacing={2}>
+            <Grid container spacing={2} alignItems="stretch">
+                    <Grid item xs={12} sm={12} md={5}>
+                        <CompanyCardComponent com={company} />
+                    </Grid>
 
-                <Grid item xs={12} sm={12} md={5}>
-                    <h2 style={{marginLeft:'25px',marginBottom:'-25px'}}>{ticker}</h2>
-                    <CompanyCardComponent com={company} />
-                </Grid>
-
-                <Grid item xs={12} sm={12} md={7}>
-                    <h2 style={{marginLeft:'-25px',marginBottom:'-25px'}}>Charts</h2>
-                    <ChartViewer ticker={ticker}/>
-                </Grid>
+                    <Grid item xs={12} sm={12} md={7}>
+                        <ChartViewer ticker={ticker}/>
+                    </Grid>
 
 
                 <Grid item xs={12}>
-                    <h2 style={{marginLeft:'25px',marginBottom:'25px'}}>Financial statements</h2>
                     {fsComponent}
                 </Grid>
 
                 <Grid item xs={12} sm={12} md={7}>
-                    <h2 style={{marginLeft:'25px',marginBottom:'25px'}}>V101</h2>
-                    'V101 component'
+                    'News component'
                 </Grid>
 
                 <Grid item xs={12} sm={12} md={5}>
-                    <h2 style={{marginLeft:'25px',marginBottom:'25px'}}>News</h2>
-                    'News component'
+                    <FormulaComponent />
                 </Grid>
 
             </Grid>
