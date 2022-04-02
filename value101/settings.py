@@ -26,10 +26,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'app_fundamentals.apps.AppFundamentalsConfig',
-    'api_fundamentals.apps.ApiFundamentalsConfig',
+
     'rest_framework',
     'corsheaders',
+
+    'app_fundamentals.apps.AppFundamentalsConfig',
+    'api_fundamentals.apps.ApiFundamentalsConfig',
+    'app_LMS.apps.AppLmsConfig',
 ]
 
 MIDDLEWARE = [
@@ -79,6 +82,10 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'databases/fundamentals_db_21-11-27-1739',
     },
+    'LMS_db': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'databases/lms.sqlite3',
+    }
 }
 DATABASE_ROUTERS = [
     'databases.db_routers.FundamentalsRouter',

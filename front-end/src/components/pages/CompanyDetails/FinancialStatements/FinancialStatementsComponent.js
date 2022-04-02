@@ -15,7 +15,7 @@ export default function FinancialStatementsComponent(statements) {
   if (statements.one_type != null) {
     return (
       <Paper
-      elevation={4}
+      elevation={3}
       style={{height:'700px',
               marginTop: '-30px',
               marginLeft: '20px',
